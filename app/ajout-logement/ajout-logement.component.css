@@ -1,0 +1,30 @@
+.conteneur {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  vertical-align: middle;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  color: #006cb8;
+}
+.subtitle {
+  color: #ffc928;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.footer {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

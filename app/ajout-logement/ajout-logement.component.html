@@ -1,0 +1,102 @@
+<mat-card class="container">
+
+  <mat-card-title class="title">
+    Enregistrez votre logement
+  </mat-card-title>
+
+    <mat-card-subtitle class="subtitle">
+      Entrez l'adresse du logement que vous souhaitez mettre à disposition :
+    </mat-card-subtitle>
+
+      <mat-card-content class="formulaire">
+
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Numéro"
+          type="number"
+          id="numero"
+          [(ngModel)]="logement.numero_rue"
+          name="numero">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Type de rue"
+          type="text"
+          [(ngModel)]="logement.type_rue"
+          name="rue">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Nom de rue"
+          type="text"
+          [(ngModel)]="logement.nom_rue"
+          name="nom">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Complèment"
+          type="text"
+          [(ngModel)]="logement.complement_adresse"
+          name="complement">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Code Postal"
+          type="text"
+          [(ngModel)]="logement.code_postal"
+          name="code postal">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Ville"
+          type="text"
+          [(ngModel)]="logement.ville"
+          name="ville">
+        </mat-form-field>
+
+  </mat-card-content>
+  
+  <mat-card-content class="formulaire">
+
+    <mat-card-subtitle class="subtitle">
+      Entrez le prix par nuit :
+    </mat-card-subtitle>
+
+    <mat-form-field class="example-full-width">
+        <input matInput
+        placeholder="Prix"
+        type="text"
+        [(ngModel)]="logement.prix_nuit"
+        name="prix">
+      </mat-form-field>
+
+  </mat-card-content>
+
+  <mat-card-content class="formulaire">
+
+      <mat-card-subtitle class="subtitle">
+        Ajoutez une description :
+      </mat-card-subtitle>
+    
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Description"
+            type="longtext"
+            [(ngModel)]="logement.description"
+            name="description">
+        </mat-form-field>
+
+  </mat-card-content>
+
+  <mat-card-footer class="footer">
+    <button type="button" routerLink="../" mat-button>Retour</button> 
+    <!-- <a type="submit" class="ghost-button-thick-border">Valider</a> -->
+    <button mat-button type="submit">Valider</button>
+  </mat-card-footer>
+
+  <!-- <mat-cell *matCellDef="let logement">
+    <button mat-button
+    type="button"
+    (click)="deleteLogement(logement.logement_id)"
+    color="warn"><mat-icon>delete</mat-icon></button>
+  </mat-cell> -->
+  

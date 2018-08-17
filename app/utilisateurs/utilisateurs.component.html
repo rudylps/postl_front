@@ -1,0 +1,49 @@
+<!-- code tableau -->
+  <mat-table [dataSource]="dataList" matSort>
+
+      <ng-container matColumnDef ="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header><b>Id</b></mat-header-cell>
+          <mat-cell *matCellDef="let utilisateur">{{utilisateur.utilisateur_id}}</mat-cell>
+        </ng-container>
+  
+    <ng-container matColumnDef ="nom">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><b>Nom</b></mat-header-cell>
+      <mat-cell *matCellDef="let utilisateur">{{utilisateur.nom | uppercase}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef ="prenom">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><b>Prénom</b></mat-header-cell>
+      <mat-cell *matCellDef="let utilisateur">{{utilisateur.prenom}}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="afficher">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <!--<mat-cell *matCellDef="let utilisateur">
+          <button mat-button
+          (click)="findOneUtilisateur(utilisateur.utilisateur_id)"
+          >Profil de {{ utilisateur.nom }}</button>
+      </mat-cell>-->
+      <mat-cell *matCellDef="let utilisateur">
+        <button
+        (click)="findOneUtilisateur(utilisateur.utilisateur_id)"
+        mat-button>
+        <mat-icon>input</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="supprimer">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef="let utilisateur">
+        <button mat-button
+        type="submit"
+        (click)="deleteUtilisateur(utilisateur.utilisateur_id)"
+        color="warn">
+        <mat-icon>delete</mat-icon>
+      </button> 
+    </mat-cell>
+  </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns" ></mat-row>
+  
+  </mat-table>

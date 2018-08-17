@@ -1,0 +1,42 @@
+.conteneur {
+    width: 35%;
+    min-width: 350px;
+    max-width: 500px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    color: #006cb8;
+}
+.subtitle {
+    text-align: center;
+    color: #ffc928;
+}
+
+.image {
+    text-align: center;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+}
+
+.header {
+    background-color: #006cb8;
+}

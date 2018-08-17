@@ -1,0 +1,70 @@
+<mat-card class="conteneur">
+  <mat-card-title class="title">Recherche de logement</mat-card-title>
+  
+  <mat-card-content class="formulaire">
+      <mat-form-field class="example-full-width">
+          <input matInput
+          placeholder="Ville"
+		  [(ngModel)]="logementSearch.ville"
+		  [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput
+            placeholder="code postal"
+			[(ngModel)]="logementSearch.code_postal"
+			[ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-footer class="footer"(ngSubmit)="onSearch()">
+      <button mat-button type="button" color="warn">Effacer</button>
+  </mat-card-footer>
+
+</mat-card>
+
+<mat-table [dataSource]="dataList" matSort>
+
+  <ng-container matColumnDef ="logement_id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header><b>id</b></mat-header-cell>
+    <mat-cell *matCellDef="let logement">{{logement.logement_id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef ="adresse">
+    <mat-header-cell *matHeaderCellDef mat-sort-header><b>Adresse du logement</b></mat-header-cell>
+    <mat-cell *matCellDef="let logement">
+      {{logement.code_postal}} {{logement.ville | uppercase}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef ="prix">
+    <mat-header-cell *matHeaderCellDef mat-sort-header><b>Prix par nuit</b></mat-header-cell>
+    <mat-cell *matCellDef="let logement">
+      {{logement.prix_nuit}} €
+    </mat-cell>
+  </ng-container>
+
+<ng-container matColumnDef="afficher">
+  <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+  <mat-cell *matCellDef="let logement">
+    <button
+    (click)="findOneLogement(logement.logement_id)"
+    mat-button>
+    <mat-icon>input</mat-icon>
+    </button>
+  </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="supprimer">
+  <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+  <mat-cell *matCellDef="let logement">
+    <button mat-button
+    type="button"
+    (click)="deleteLogement(logement.logement_id)"
+    color="warn"><mat-icon>delete</mat-icon></button>
+  </mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns:displayedColumns" ></mat-row>
+
+</mat-table>

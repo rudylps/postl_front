@@ -1,0 +1,37 @@
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin-right: auto;
+}
+
+.footer {
+    display: flex;
+    vertical-align: bottom;
+    width: 75%;
+    margin-left: 0;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+.ghost-button-thick-border {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 180px;
+    font-weight: bold;
+    padding: 8px;
+    color: #fc0000;
+    border: 3px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out,
+                color 0.2s ease-out;
+  }
+  .ghost-button-thick-border:hover,
+  .ghost-button-thick-border:active {
+    background-color: #fff;
+    color: #fc0000;
+    transition: background-color 0.3s ease-in,
+                color 0.3s ease-in;
+  }
