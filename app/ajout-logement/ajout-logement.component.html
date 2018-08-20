@@ -1,4 +1,4 @@
-<mat-card class="container">
+<mat-card class="container" (ngSubmit)="onSubmit()">
 
   <mat-card-title class="title">
     Enregistrez votre logement
@@ -90,8 +90,18 @@
   <mat-card-footer class="footer">
     <button type="button" routerLink="../" mat-button>Retour</button> 
     <!-- <a type="submit" class="ghost-button-thick-border">Valider</a> -->
-    <button mat-button type="submit">Valider</button>
+    <button mat-button type="button" (click)="onSubmit()">Valider</button>
   </mat-card-footer>
+
+  <!-- <ng-container matColumnDef="supprimer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let logement">
+        <button mat-button
+        type="button"
+        (click)="deleteLogement(logement.logement_id)"
+        color="warn"><mat-icon>delete</mat-icon></button>
+      </mat-cell>
+    </ng-container> -->
 
   <!-- <mat-cell *matCellDef="let logement">
     <button mat-button

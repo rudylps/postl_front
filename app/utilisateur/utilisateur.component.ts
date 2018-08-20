@@ -30,11 +30,12 @@ export class UtilisateurComponent implements OnInit {
   } */
   ngOnInit() {
     console.log("util. ngOnInit");
-    this.apiService.findOneUtilisateur(this.utilisateur_id).subscribe(
-      utilisateur => {
-        this.utilisateur
-      }
-    );
+    this.utilisateur_id = + this.route.snapshot.paramMap.get('utilisateur_id');
+      this.apiService
+      .findOneUtilisateur(this.utilisateur_id)
+      .subscribe(
+        utilisateur => (this.utilisateur = utilisateur),
+      );
   }
 
   deleteUtilisateur() {

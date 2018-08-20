@@ -26,8 +26,7 @@ export class LogementComponent implements OnInit {
       .findOneLogement(this.logement_id)
       .subscribe(
         logement => (this.logement = logement),
-      );  
-    console.log("lgmt ngOnInit");
+      );
   }
 
   deleteLogement() {
@@ -37,16 +36,15 @@ export class LogementComponent implements OnInit {
     ).subscribe(
       () => this.router.navigate(['/logements'])
     );
-    console.log("lgmt deleteLogement");
   }
 
   updateLogement(logement: Logement) {
     console.log("lgmt updateLogement");
-    this.apiService.updateLogement(logement, this.logement_id)
-    .subscribe(
+    this.apiService.updateLogement(
+      logement, this.logement_id
+    ).subscribe(
       () => this.router.navigate(['/logements'])
     );
-    console.log("lgmt updateLogement");
   }
 
 }

@@ -59,7 +59,7 @@ export class ApiService {
   //Supprime un logement en fonction de son Id
   deleteLogement(logement_id: number): Observable<Logement> {
     console.log("apiService deleteLogement");
-    return this.http.delete<Logement>(this.url+'logement/'+ logement_id);
+    return this.http.delete<Logement>(this.url + 'logement/'+ logement_id);
   }
   //Modifie un logement en fonction de son Id
   updateLogement(logement: Logement, logement_id: number): Observable<Logement> {
@@ -71,7 +71,7 @@ export class ApiService {
   // Chercher un logement en fonction de la ville et du code postal
   chercherLogement(ville: String, cp: String): Observable<Logement[]> {
     console.log("apiService chercherLogement");
-    return this.http.get<Logement[]>(this.url + 'chercherLogement?&ville=' + ville +
+    return this.http.get<Logement[]>(this.url + 'chercher?&ville=' + ville +
                                                 '&cp=' + cp );
   }
   

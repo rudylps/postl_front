@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Logement } from '../../modeles';
 import { ApiService } from '../api.service';
-import { Router, ActivatedRoute } from '../../../node_modules/@angular/router';
-import { Form, NgForm } from '../../../node_modules/@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-ajout-logement',
@@ -22,7 +22,7 @@ export class AjoutLogementComponent implements OnInit {
     console.log("ajoutlogement ngOnInit");
   }
 
-  onsubmit(form: NgForm) {
+  onSubmit(form: NgForm) {
     console.log("ajoutlogement onsubmit");
     this.apiService.createLogement(this.logement).subscribe(
       () => this.router.navigate(['/logements/'])

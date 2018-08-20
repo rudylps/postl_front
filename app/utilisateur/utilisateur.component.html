@@ -1,64 +1,61 @@
-<div *ngIf="utilisateur" class="container">
+<mat-card *ngIf="utilisateur" class="conteneur">
 
-  <div class="ligne1">
-      <h1 class="titre">Profil de {{ utilisateur.prenom }} {{ utilisateur.nom | uppercase }}</h1>
-  </div>
-  <form #utilisateurData (ngSubmit)="updateUtilisateur(utilisateurData)">
-      <div>
+    <mat-card-title class="element">
+        Profil de {{ utilisateur.prenom }} {{ utilisateur.nom | uppercase }}</mat-card-title>
 
-          <mat-form-field class="example-full-width">
+  <!-- <form #utilisateurData (ngSubmit)="updateUtilisateur(utilisateurData)">
+      <div> -->
+
+        <mat-card-content class="element">
+
+          <mat-form-field>
               <input matInput
               disabled="true"
               placeholder="identifiant RH : {{utilisateur.id_rh}}">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.mot_de_passe"
               [ngModelOptions]="{standalone: true}"
               placeholder="mot de passe">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.nom"
               [ngModelOptions]="{standalone: true}"
               placeholder="nom">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.prenom"
               [ngModelOptions]="{standalone: true}"
               placeholder="prénom">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.bureau"
               [ngModelOptions]="{standalone: true}"
               placeholder="bureau">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.mail"
               [ngModelOptions]="{standalone: true}"
               placeholder="courriel">
           </mat-form-field>
-          <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field>
               <input matInput
               [(ngModel)]="utilisateur.telephone"
               [ngModelOptions]="{standalone: true}"
               placeholder="telephone">
           </mat-form-field>
-      </div>
-      <br>
-      <mat-card-footer class="footer">
-          <button mat-button type="submit" routerLink="../">Retour</button>
-          <button mat-button type="submit" routerLink="utilisateur.utilisateur_id">Modifier</button>
-          <button mat-button type="submit" (click)="deleteUtilisateur()">Supprimer</button>
-      </mat-card-footer>
-  </form>
-</div>
+
+      </mat-card-content>
+      
+      <mat-card-content class="element">
+        <a class="bouton" routerLink="/utilisateurs">Retour</a><br/>
+        <a class="bouton" type="button" (click)="updateUtilisateur()">Modifier</a><br/>
+        <a class="bouton" type="button" (click)="deleteUtilisateur()">Supprimer</a>
+    </mat-card-content>
+  <!-- </form> -->
+</mat-card>

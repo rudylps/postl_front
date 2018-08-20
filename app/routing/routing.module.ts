@@ -14,10 +14,8 @@ const ROUTES: Routes = [
   {path: 'login', component: AccueilComponent},
   {path: 'utilisateurs', component: UtilisateursComponent},
   {path: 'logements', component: LogementsComponent},
-  // {path: 'utilisateur/utilisateur_id', component: UtilisateurComponent},
-  {path: 'utilisateur', component: UtilisateurComponent},
-  // {path: 'logement/logement_id', component: LogementComponent},
-  {path: 'logement', component: LogementComponent},
+  {path: 'utilisateur/:utilisateur_id', component: UtilisateurComponent},
+  {path: 'logement/:logement_id', component: LogementComponent},
   {path: 'ajout-logement', component: AjoutLogementComponent}
 
 ]
@@ -27,6 +25,7 @@ const ROUTES: Routes = [
     CommonModule,
     RouterModule.forRoot(ROUTES)
   ],
-  exports: [RouterModule]
+  exports: [CommonModule,
+    RouterModule]
 })
 export class RoutingModule { }

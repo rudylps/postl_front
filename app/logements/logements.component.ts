@@ -12,12 +12,12 @@ import { MatPaginator, MatSort, MatTableDataSource, MatIconModule } from '@angul
 })
 export class LogementsComponent implements OnInit {
 
-  /* logements: Logement[];
+  logements: Logement[];
   logement: Logement;
-  logementSearch: Logement = new Logement(); */
-
-  logements = new Array<Logement>();
   logementSearch: Logement = new Logement();
+
+  /* logements = new Array<Logement>();
+  logementSearch: Logement = new Logement(); */
   
   displayedColumns = ['logement_id', 'adresse', 'prix', 'afficher', 'supprimer'];
   dataList;
@@ -53,10 +53,6 @@ export class LogementsComponent implements OnInit {
   });
   }
 
-  /* findOneLogement(logement_id) {
-    console.log("lgmts findOneLogement");
-    this.router.navigate(['/logement/' + logement_id]), {relativeTo: this.route};
-  } */
   findOneLogement(logement_id) {
     console.log("lgmts. findOneLogement");
     this.apiService.findOneLogement(logement_id).subscribe(
@@ -72,15 +68,5 @@ export class LogementsComponent implements OnInit {
       }
     );
   }
-  
-  afficherDetail(logement_id) {
-	  this.router.navigate(['/logements', logement_id]), {relativeTo: this.route};
-	  console.log("lgmtz. afficherDetail");
-  }
-
-  /* chercherLogement(ville: String, cp: String): Observable<Logement[]> {
-    this.apiService.chercherLogement<Logement[]>(this.url + 'chercherLogement?&ville=' + ville +
-                                                '&cp=' + cp );
-  } */
 
 }
