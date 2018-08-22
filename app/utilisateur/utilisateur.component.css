@@ -10,7 +10,6 @@
 }
 .element:nth-child(1) { /* bloc titre */
     flex: 1;
-    text-transform: uppercase;
     font-weight: bold;
     color: #006cb8;
     display: flex;

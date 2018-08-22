@@ -37,14 +37,14 @@ export class UtilisateursComponent implements OnInit{
   }
 
   findOneUtilisateur(utilisateur_id) {
-    console.log("utilz. findOneUtilisateur");
+    console.log(utilisateur_id);
     this.apiService.findOneUtilisateur(utilisateur_id).subscribe(
       () => {
     this.router.navigate(['/utilisateur/', utilisateur_id]), {relativeTo: this.route}});
   }
   
   deleteUtilisateur(utilisateur_id) {
-    console.log("utilz. deleteUtilisateur");
+    console.log(utilisateur_id);
     this.apiService.deleteUtilisateur(utilisateur_id).subscribe(
       () => {
         this.ngOnInit();

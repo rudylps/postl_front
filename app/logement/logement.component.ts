@@ -20,7 +20,7 @@ export class LogementComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("lgmt ngOnInit");
+    console.log(this.logement_id);
     this.logement_id = + this.route.snapshot.paramMap.get('logement_id');
       this.apiService
       .findOneLogement(this.logement_id)
@@ -39,7 +39,7 @@ export class LogementComponent implements OnInit {
   }
 
   updateLogement(logement: Logement) {
-    console.log("lgmt updateLogement");
+    console.log(logement);
     this.apiService.updateLogement(
       logement, this.logement_id
     ).subscribe(

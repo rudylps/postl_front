@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Logement } from '../../modeles';
-import { MatPaginator, MatSort, MatTableDataSource, MatIconModule } from '@angular/material';
-// import { Observable } from 'rxjs';
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-logements',
@@ -13,16 +12,12 @@ import { MatPaginator, MatSort, MatTableDataSource, MatIconModule } from '@angul
 export class LogementsComponent implements OnInit {
 
   logements: Logement[];
-  logement: Logement;
   logementSearch: Logement = new Logement();
 
-  /* logements = new Array<Logement>();
-  logementSearch: Logement = new Logement(); */
   
-  displayedColumns = ['logement_id', 'adresse', 'prix', 'afficher', 'supprimer'];
-  dataList;
+  displayedColumns = ['adresse', 'prix', 'afficher', 'supprimer'];
+  dataList = new MatTableDataSource();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -32,7 +27,6 @@ export class LogementsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("ngOnInit");
     this.apiService.getAllLogements().subscribe(
       cases => {
         this.dataList = new MatTableDataSource(cases);
@@ -44,17 +38,18 @@ export class LogementsComponent implements OnInit {
   }
 
   onSearch() {
-    console.log("lgmts onSearch");
+    console.log(this.logements);
     this.apiService.chercherLogement(
     this.logementSearch.ville,
     this.logementSearch.code_postal).subscribe(
       (data: Logement[]) => {
-    this.logements = data;
+        this.dataList = new MatTableDataSource(data);
+        this.dataList.sort = this.sort;
   });
   }
 
   findOneLogement(logement_id) {
-    console.log("lgmts. findOneLogement");
+    console.log(logement_id);
     this.apiService.findOneLogement(logement_id).subscribe(
       () => {
     this.router.navigate(['/logement/', logement_id]), {relativeTo: this.route}});

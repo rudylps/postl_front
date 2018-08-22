@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Utilisateur } from '../../modeles';
 import { ApiService } from '../api.service';
 
@@ -18,18 +18,9 @@ export class UtilisateurComponent implements OnInit {
     private router: Router,
     public apiService: ApiService
   ) { }
-
-  /* ngOnInit() {
-    console.log("util. ngOnInit");
-    this.utilisateur_id = +this.route.snapshot.paramMap.get('utilisateur_id');
-      this.apiService
-      .findOneUtilisateur(this.utilisateur_id)
-      .subscribe(
-        utilisateur => (this.utilisateur = utilisateur),
-      );  
-  } */
+  
   ngOnInit() {
-    console.log("util. ngOnInit");
+    console.log(this.utilisateur_id);
     this.utilisateur_id = + this.route.snapshot.paramMap.get('utilisateur_id');
       this.apiService
       .findOneUtilisateur(this.utilisateur_id)
@@ -39,7 +30,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   deleteUtilisateur() {
-    console.log("util. deleteUtilisateur");
+    console.log(this.utilisateur);
       this.apiService.deleteUtilisateur(
       this.utilisateur.utilisateur_id
     ).subscribe(
@@ -48,7 +39,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   updateUtilisateur(utilisateur: Utilisateur) {
-    console.log("util. updateUtilisateur");
+    console.log(this.utilisateur_id);
     this.apiService.updateUtilisateur(utilisateur, this.utilisateur_id)
     .subscribe(
       () => this.router.navigate(['/utilisateurs'])

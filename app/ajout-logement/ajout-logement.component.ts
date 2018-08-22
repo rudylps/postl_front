@@ -23,7 +23,7 @@ export class AjoutLogementComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log("ajoutlogement onsubmit");
+    console.log(this.logement);
     this.apiService.createLogement(this.logement).subscribe(
       () => this.router.navigate(['/logements/'])
     );
