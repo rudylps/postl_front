@@ -30,7 +30,7 @@ export class LogementComponent implements OnInit {
   }
 
   deleteLogement() {
-    console.log("lgmt deleteLogement");
+    console.log(this.logement_id);
     this.apiService.deleteLogement(
       this.logement.logement_id
     ).subscribe(
@@ -38,10 +38,10 @@ export class LogementComponent implements OnInit {
     );
   }
 
-  updateLogement(logement: Logement) {
-    console.log(logement);
+  updateLogement() {
+    console.log(this.logement_id);
     this.apiService.updateLogement(
-      logement, this.logement_id
+      this.logement, this.logement_id
     ).subscribe(
       () => this.router.navigate(['/logements'])
     );

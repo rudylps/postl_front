@@ -38,9 +38,9 @@ export class UtilisateurComponent implements OnInit {
     );
   }
 
-  updateUtilisateur(utilisateur: Utilisateur) {
+  updateUtilisateur() {
     console.log(this.utilisateur_id);
-    this.apiService.updateUtilisateur(utilisateur, this.utilisateur_id)
+    this.apiService.updateUtilisateur(this.utilisateur, this.utilisateur_id)
     .subscribe(
       () => this.router.navigate(['/utilisateurs'])
     );
